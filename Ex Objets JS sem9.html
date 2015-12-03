@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "utf-8">
+    </head>
+    <body>
+        <input type="text" id="prenom" placeholder="prénom" />
+        <input type="text" id="nom" placeholder="nom" />
+        <input type="number" id="numero" placeholder="numéro" />
+        <button type="submit" id="ajouter">Ajouter</button>
+        <ul id="liste"></ul>
+        
+    <script> 
+
+        var contacts = [{
+            prenom: "James",
+  	        nom: "Smith",
+        	numero: "0101010101"
+	    	},
+              {
+            prenom: "John",
+            nom: "Doe",
+            numero: "020202020202"
+            }];
+            
+        var prenom = document.getElementById("prenom"),
+            nom = document.getElementById("nom"),
+            numero = document.getElementById("numero"),
+            liste = document.getElementById("liste"),
+            ajouter = document.getElementById("ajouter");
+
+
+        function texteContact(contact) {
+         return contact.prenom + " " + contact.nom + " " + contact.numero ;
+        };
+        
+    
+            
+        function afficherListe() {
+            
+            for (var i = 0, c = contacts.length; i < c; i++) {
+                var li = document.createElement("li");
+                liTxt = document.createTextNode(contacts[i].value);
+                li.appendChild(liTxt);
+                liste.appendChild(li);
+            }
+        }; 
+        
+        
+        function ajouterContact() {
+            contacts.push({
+                prenom: prenom.value,
+                nom: nom.value,
+                numero: numero.value
+            });
+            afficherListe();
+        };
+    
+        afficherListe;
+        ajouter.onclick = ajouterContact(); 
+       
+
+
+
+
+</script>
+</body>
+</html>
